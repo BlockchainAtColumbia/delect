@@ -1,0 +1,8 @@
+<ul class="candidates-column" style="list-style-type:none">
+  <li *ngFor="let candidate of candidates">
+    <material-button (trigger)="onSelectedCandidate(candidate)">
+      <span class="badge">{{candidate.name}} </span>
+      {{candidate.position}}, {{candidate.year}}, {{candidate.political_party}}
+    </material-button>
+  </li>
+</ul>
