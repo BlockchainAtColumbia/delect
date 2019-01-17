@@ -1,0 +1,52 @@
+@import 'package:angular_components/css/material/material';
+
+$mdc-card-image: 'http://material-components-web.appspot.com/images/16-9.jpg';
+
+:host {
+  display: flex;
+}
+
+// Provide a size for the card. Cards normally take up the complete space of
+// their parent.
+.candidate-size {
+  width: $mat-grid * 44;
+  margin-bottom: $mat-grid * 2;
+}
+
+// Provide material styling for the title.
+.candidate-card__title {
+  @include mat-font-title;
+  line-height: 1em; // legacy setting
+  margin: 0;
+  padding: 0 $mat-grid * 2;
+  padding-top: $mat-grid;
+}
+
+// Provider material styling for the subtitle.
+.candidate-card__subtitle {
+  @include mat-font-subhead;
+  margin: 0;
+  padding: 0 $mat-grid * 2 $mat-grid;
+}
+
+// Use the same image as the mdc-web example.
+.candidate-card__media {
+  background-image: url($mdc-card-image);
+}
+
+.candidate-card__primary {
+  padding: $mat-grid * 2;
+}
+
+.candidate-card__secondary {
+  @include mat-font-body;
+  padding: 0 $mat-grid * 2 $mat-grid;
+}
+
+section {
+  display: block;
+
+  + section {
+    margin-left: $mat-grid * 4;
+  }
+}

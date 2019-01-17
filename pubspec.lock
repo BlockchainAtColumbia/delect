@@ -443,7 +443,7 @@ packages:
     source: hosted
     version: "1.15.2"
   sass_builder:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: sass_builder
       url: "https://pub.dartlang.org"

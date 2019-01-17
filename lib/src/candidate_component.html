@@ -1,0 +1,21 @@
+<!-- <material-button (trigger)="onSelectedCandidate(candidate)">
+  <span class="badge">{{candidate.name}} </span>
+    {{candidate.position}}, {{candidate.year}}, {{candidate.political_party}}
+</material-button> -->
+
+<section>
+  <div class="mdc-card candidate-size">
+    <div class="mdc-card__primary-action"
+         tabindex="0"
+         (click)="onSelectedCandidate(candidate)"
+         (keyup.enter)="onSelectedCandidate(candidate)">
+      <div class="mdc-card__media mdc-card__media--16-9 candidate-card__media"></div>
+      <h2 class="candidate-card__title">{{candidate.name}}</h2>
+      <h3 class="candidate-card__subtitle">{{candidate.year}}, {{candidate.political_party}}
+      </h3>
+      <div class="candidate-card__secondary">
+      The quick brown fox jumps over the lazy dog
+      </div>
+    </div>
+  </div>
+</section>
