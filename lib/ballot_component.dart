@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:angular/angular.dart';
-import 'package:angular_components/angular_components.dart';
+import 'package:angular_components/material_button/material_button.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'src/candidate_component.dart';
 import 'src/candidate_service.dart';
 import 'src/candidate.dart';
@@ -11,11 +13,10 @@ import 'src/candidate.dart';
     directives: [
       coreDirectives,
       CandidateComponent,
-      MaterialIconComponent,
       MaterialButtonComponent,
+      MaterialIconComponent,
     ],
     providers: [
-      materialProviders,
       ClassProvider(CandidateService),
     ],
 )
@@ -31,6 +32,26 @@ class BallotComponent implements OnInit {
     void _getPresidents() {
       candidates = _candidateService.getPresidents();
       candidatePosition = "President";
+    }
+
+    void _getVicePresidents() {
+      candidates = _candidateService.getVicePresidents();
+      candidatePosition = "Vice President";
+    }
+
+    void _getTreasures() {
+      candidates = _candidateService.getTreasures();
+      candidatePosition = "Treasurer";
+    }
+
+    void addSelectedCandidate(var candidate) {
+      selection.add(candidate);
+      if (selection.last.position == "President") {
+          _getVicePresidents();
+      }
+      else if (selection.last.position == "Vice President") {
+          _getTreasures();
+      }
     }
 
     void ngOnInit() => _getPresidents();
