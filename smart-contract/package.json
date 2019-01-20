@@ -1,0 +1,9 @@
+{
+	"name": "election-smart-contract",
+	"version": "1.0.0",
+	"description": "Smart contract for decentralized election",
+	"main": "truffle.js",
+	"devDependencies": {
+		"truffle-hdwallet-provider": "*"
+	}
+}
