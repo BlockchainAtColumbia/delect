@@ -3,12 +3,15 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Preform one time setup
   sudo apt-get update
-  sudo apt-get install apt-transport-https
+  sudo apt-get install curl apt-transport-https
   sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
   sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
   # Install the Dart SDK:
   sudo apt-get update
   sudo apt-get install dart
+  if [ ! -d "/usr/lib/dart/bin/dart2js" ]; then
+    export PATH="$PATH:/usr/lib/dart/bin/"
+  fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew tap dart-lang/dart
   brew install dart
