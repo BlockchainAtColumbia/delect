@@ -1,4 +1,7 @@
 @import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_button/mixins';
+
+@include button-background-color('#submit-button', $mat-blue);
 
 .candidate-column {
   margin: 0 0 2em 0;

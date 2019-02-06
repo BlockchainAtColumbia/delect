@@ -1,7 +1,14 @@
 <ul class="candidates-column" style="list-style-type:none">
-  <h1>{{candidatePosition}}</h1>
-  <li *ngFor="let candidate of candidates">
-    <candidate [candidate]="candidate" (candidateSelection)="addSelectedCandidate($event)">
-    </candidate>
-  </li>
+  <div *ngIf="!isBallotComplete">
+       <h1>{{candidatePosition}}</h1>
+      <li *ngFor="let candidate of candidates">
+        <candidate [candidate]="candidate" (candidateSelection)="addSelectedCandidate($event)">
+        </candidate>
+      </li>
+  </div>
+  <div *ngIf="isBallotComplete">
+      <h1>Review and Submit</h1>
+      <material-button (trigger)="submit" id="submit-button">Submit
+      </material-button>
+  </div>
 </ul>
