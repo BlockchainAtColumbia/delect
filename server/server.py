@@ -5,11 +5,10 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 cors = CORS(app)
 
-# Example of adding new data to the database
+# Sending Ballot to the Smart Contract
 @app.route('/sendBallot', methods=['POST','OPTIONS'])
 @cross_origin(origin='*')
 def sendBallot():
-
     data = request.get_data()
     print(data)
 
