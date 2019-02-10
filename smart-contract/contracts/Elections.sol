@@ -40,7 +40,7 @@ contract Elections {
     }
 
     function addElection (bytes32[] memory UNIs) public onlyManager() onlyStage(0) {
-        Election storage election = elections[++electionsCount];
+        Election storage election = elections[electionsCount++];
         election.UNIs = UNIs;
         for (uint i = 0; i < UNIs.length; i++) {
             election.candidates[UNIs[i]].exists = true;
@@ -79,6 +79,10 @@ contract Elections {
 
     function getVotesCount (uint electionId, bytes32 candidate) public view returns (uint) {
         return elections[electionId].candidates[candidate].votes;
+    }
+
+    function getElectionUNIs (uint electionId) public view returns (bytes32[] memory) {
+        return elections[electionId].UNIs;
     }
 
 }
