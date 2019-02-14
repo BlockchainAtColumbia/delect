@@ -1,9 +1,9 @@
 pragma solidity ^0.5.0;
 
 contract Elections {
-    address manager;
-    uint stage;
-    bytes32 privateKey;
+    address public manager;
+    uint public stage;
+    bytes32 public privateKey;
 
     uint electionsCount;
     mapping (uint => Election) elections;
